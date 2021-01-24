@@ -16,22 +16,39 @@ void setup()
 	initTemp();
 
 	int temp = getTemp();
+	Serial.print("Starting temp is: ");
+	Serial.println(temp);
 
 	// While themometer gets up to temperature
 	while (temp < 71) 
 	{
 		temp = getTemp();
+		Serial.print("Getting up to temp: ");
+		Serial.println(temp);
 	}
 
 	// While water is cooling to 70 degrees
 	while (temp > 70)
 	{
 		temp = getTemp();
+		Serial.print("Cooling: ");
+		Serial.println(temp);
 	}
 	
 	// Once cooled, play song
-	int s = rand() % 2 + 1; 
-	sing(s);
+
+	for (int i=0; i<10; i++)
+	{
+		Serial.println(rand() % 2 + 1);
+	}
+
+	int s = rand() % 2 + 1;
+
+	while(true)
+	{
+		sing(s);
+	}
+	
 } 
 
 void loop(){}
